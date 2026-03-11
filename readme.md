@@ -8,7 +8,9 @@ Manejando en los tests aproximadamente 50 mil peticiones/s
 
 <img width="217" height="93" alt="minibenchmark" src="https://github.com/user-attachments/assets/e8ddbf16-8a7c-4c42-802c-05baae541160" />
 
-**NO USAR EN PRODUCCION**
+**IMPORTANTE: NO USAR EN PRODUCCION**
+
+Este proyecto lo he desarrollado en mi tiempo libre, no recomiendo usarlo en produccion por el momento
 
 ## 📂 Estructura del proyecto
 
