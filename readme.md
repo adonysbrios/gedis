@@ -4,6 +4,9 @@
 **Gedis** es un proyecto Go que implementa un servidor de almacenamiento clave-valor simple, inspirado en sistemas como Redis.  
 El servidor acepta conexiones TCP y permite ejecutar comandos básicos (`SET`, `GET`, `DEL`, `PING`) en texto plano.  
 
+Manejando en los tests aproximadamente 50 mil peticiones/s
+<img width="217" height="93" alt="minibenchmark" src="https://github.com/user-attachments/assets/e8ddbf16-8a7c-4c42-802c-05baae541160" />
+
 **NO USAR EN PRODUCCION**
 
 ## 📂 Estructura del proyecto
