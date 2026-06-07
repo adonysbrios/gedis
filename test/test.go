@@ -20,31 +20,32 @@ func runClient(id, cycles int, wg *sync.WaitGroup) {
 	}
 	defer conn.Close()
 
-	buf := make([]byte, 1024)
+	buf := make([]byte, 1024*8)
 
 	for i := id * cycles; i < id*cycles+cycles; i++ {
+		key := fmt.Sprintf("key%d", i)
+		key_len := len(key)
 		commands := []string{
-			fmt.Sprintf("SET %d localhost\n", i),
-			fmt.Sprintf("GET %d\n", i),
-			fmt.Sprintf("DEL %d\n", i),
+			fmt.Sprintf("3,SET,%d,%s,4718,adsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtradsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssu arehtucoshmrosexurhusodhmxguthxstuor,hxtuosr,hxtuiserhtuesrhothrethretcuoehructiweblutewruntuetbuiewrtbluxiebltuebrulbfdsuibcsobtprt'sbxdrtiobereobxw;erowxtberwlztnwerztkwemrtkwnctrowbctiowbxtubwrubywriotwcnrtm;opcentxioertuxbertuberuocthewriotierowthcrewipcthwuperwxtigtr", key_len, key),
+			fmt.Sprintf("3,GET,%d,%s", key_len, key),
+			fmt.Sprintf("3,SET,%d,%s,13,value changed", key_len, key),
+			fmt.Sprintf("3,GET,%d,%s", key_len, key),
+			fmt.Sprintf("3,DEL,%d,%s", key_len, key),
+			fmt.Sprintf("3,GET,%d,%s", key_len, key),
 		}
 
 		for _, cmd := range commands {
-			_, err := conn.Write([]byte(cmd))
+			_, err := conn.Write([]byte(cmd + "\n"))
 			if err != nil {
 				fmt.Println("client", id, "write error:", err)
 				return
 			}
-
-			n, err := conn.Read(buf)
-
+			_, err = conn.Read(buf)
 			if err != nil {
 				fmt.Println("client", id, "read error:", err)
 				return
 			}
 
-			// Delete this line below if you want to print
-			n++
 			// Remove the comment below if you want to print
 			//fmt.Printf("client %d: %s", id, string(buf[:n]))
 
@@ -59,8 +60,8 @@ func main() {
 	startedAt := time.Now()
 	var wg sync.WaitGroup
 
-	numClients := 10        // número de clientes concurrentes
-	cyclesPerClient := 5000 // cada cliente hace 50 ciclos (SET, GET, DEL)
+	numClients := 25        // número de clientes concurrentes
+	cyclesPerClient := 1000 // cada ciclo realiza 6 peticiones (SET, GET, SET, GET, DEL, GET)
 
 	for c := 0; c < numClients; c++ {
 		wg.Add(1)

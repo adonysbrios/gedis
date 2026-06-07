@@ -1,0 +1,24 @@
+linters:
+  enable:
+    - gofmt
+    - govet
+    - errcheck
+    - staticcheck
+    - gosimple
+    - ineffassign
+    - unused
+    - misspell
+    - revive
+    - prealloc
+
+linters-settings:
+  gofmt:
+    simplify: true
+  errcheck:
+    check-type-assertions: true
+  misspell:
+    locale: US
+
+run:
+  timeout: 2m
+  tests: false
